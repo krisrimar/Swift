@@ -39,20 +39,29 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cnc-qc-eaH">
                                         <rect key="frame" x="0.0" y="142.5" width="257" height="96"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjI-BC-JDh">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjI-BC-JDh">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 <state key="normal" title="👊"/>
+                                                <connections>
+                                                    <action selector="rockBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PbE-Ny-CL1"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0M-5b-oCk">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0M-5b-oCk">
                                                 <rect key="frame" x="91" y="0.0" width="75" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 <state key="normal" title="✋"/>
+                                                <connections>
+                                                    <action selector="paperBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kBU-mB-OAr"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cya-l6-oGf">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cya-l6-oGf">
                                                 <rect key="frame" x="182" y="0.0" width="75" height="96"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 <state key="normal" title="✌️"/>
+                                                <connections>
+                                                    <action selector="scissorsBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Gc-2Y-OIp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -60,6 +69,9 @@
                                         <rect key="frame" x="72" y="254.5" width="113" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Play Again"/>
+                                        <connections>
+                                            <action selector="playAgainBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2hE-P2-2p9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -70,6 +82,14 @@
                             <constraint firstItem="hbB-T5-ybd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nne-Ii-1Ze"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="appSign" destination="3GY-DP-ib5" id="UIe-aW-flH"/>
+                        <outlet property="gameStatusLabel" destination="vFP-Pg-hz9" id="cgV-75-jCg"/>
+                        <outlet property="paperSignBtn" destination="p0M-5b-oCk" id="pnb-gR-FhJ"/>
+                        <outlet property="playAgainBtn" destination="QXq-sK-f08" id="Uw4-T9-8dn"/>
+                        <outlet property="rockSignBtn" destination="BjI-BC-JDh" id="b6N-xj-Ejr"/>
+                        <outlet property="scissorsSignBtn" destination="cya-l6-oGf" id="61U-l5-NNF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
