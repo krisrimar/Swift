@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        updateUI("🤖")
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,23 +30,24 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rockBtnTapped(_ sender: Any) {
-        updateUI()
+        play(.rock)
     }
     @IBAction func paperBtnTapped(_ sender: Any) {
-        updateUI()
+        play(.paper)
     }
     @IBAction func scissorsBtnTapped(_ sender: Any) {
-        updateUI()
+        play(.scissors)
     }
     @IBAction func playAgainBtnTapped(_ sender: Any) {
-        updateUI()
+        currentGameState = .start
+        updateUI("🤖")
     }
     
     
-    func updateUI() {
+    func updateUI(_ newAppSign: String) {
         if(currentGameState == .start) {
             gameStatusLabel.text = currentGameState.result
-            appSign.text = "🤖"
+            appSign.text = newAppSign
             playAgainBtn.isHidden = true
             
             rockSignBtn.isHidden = false
@@ -56,7 +57,25 @@ class ViewController: UIViewController {
             rockSignBtn.isEnabled = true
             paperSignBtn.isEnabled = true
             scissorsSignBtn.isEnabled = true
+        } else {
+            gameStatusLabel.text = currentGameState.result
+            appSign.text = newAppSign
+            playAgainBtn.isHidden = false
+            
+            rockSignBtn.isHidden = true
+            paperSignBtn.isHidden = true
+            scissorsSignBtn.isHidden = true
+            
+            rockSignBtn.isEnabled = false
+            paperSignBtn.isEnabled = false
+            scissorsSignBtn.isEnabled = false
         }
+    }
+    
+    func play(_ usersChoice: Sign) {
+        let computersChoice = randomSign()
+        currentGameState = gameResult(player1: usersChoice, player2: computersChoice)
+        updateUI(computersChoice.emoji)
     }
 
 }
