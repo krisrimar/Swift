@@ -27,7 +27,26 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //Set up the top segment control
+        
+        topCaptionSegmentControl.removeAllSegments()
+        
+        for choice in topChoices {
+            topCaptionSegmentControl.insertSegment(withTitle: choice.emoji, at: topChoices.count, animated: false)
+        }
+        
+        topCaptionSegmentControl.selectedSegmentIndex = 0
+        
+        //Set up the bottom segment control
+        
+        bottonCaptionSegmentControl.removeAllSegments()
+        
+        for choice in bottomChoices {
+            bottonCaptionSegmentControl.insertSegment(withTitle: choice.emoji, at: bottomChoices.count, animated: false)
+        }
+        
+        bottonCaptionSegmentControl.selectedSegmentIndex = 0
     }
 
     override func didReceiveMemoryWarning() {
