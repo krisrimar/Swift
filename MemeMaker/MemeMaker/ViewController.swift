@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    let topChoices: [CaptionOption] = [CaptionOption(emoji: "A", caption: "A"), CaptionOption(emoji: "B", caption: "A"), CaptionOption(emoji: "C", caption: "C")]
+    
+    let bottomChoices: [CaptionOption] = [CaptionOption(emoji: "A", caption: "A"), CaptionOption(emoji: "B", caption: "A"), CaptionOption(emoji: "C", caption: "C")]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
