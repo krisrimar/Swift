@@ -12,6 +12,11 @@ import AVFoundation
 class ViewController: UIViewController {
     
     var btnSound: AVAudioPlayer!
+    
+    @IBOutlet weak var outputLbl: UILabel!
+    
+    var runningNumber = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +37,17 @@ class ViewController: UIViewController {
         
     }
     
+    //this action is connected to every button on the panel
     @IBAction func numberPressed(sender: UIButton) {
         playSound()
+        runningNumber += "\(sender.tag)"
+        outputLbl.text = runningNumber
     }
 
+    //this function plays the sound
     func playSound() {
+        
+        //if sound is already playing - stop it, because otherwise it would repeat in new sound starting before the previous sound stopper
         if btnSound.isPlaying {
             btnSound.stop()
         }
