@@ -14,6 +14,8 @@
 		1250D25B1E4BA76200D6D9F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1250D2591E4BA76200D6D9F0 /* LaunchScreen.storyboard */; };
 		1250D2661E4BAF5400D6D9F0 /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1250D2651E4BAF5400D6D9F0 /* Oswald-Light.ttf */; };
 		1250D2691E4BB10400D6D9F0 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250D2681E4BB10400D6D9F0 /* VideoVC.swift */; };
+		1250D26B1E4BB42C00D6D9F0 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250D26A1E4BB42C00D6D9F0 /* TableCell.swift */; };
+		1250D26D1E4BB64B00D6D9F0 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250D26C1E4BB64B00D6D9F0 /* CellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1250D25C1E4BA76200D6D9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1250D2651E4BAF5400D6D9F0 /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
 		1250D2681E4BB10400D6D9F0 /* VideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
+		1250D26A1E4BB42C00D6D9F0 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		1250D26C1E4BB64B00D6D9F0 /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		1250D2631E4BA7C000D6D9F0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1250D26A1E4BB42C00D6D9F0 /* TableCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 		1250D2641E4BA7CD00D6D9F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1250D26C1E4BB64B00D6D9F0 /* CellData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -178,6 +184,8 @@
 			files = (
 				1250D2691E4BB10400D6D9F0 /* VideoVC.swift in Sources */,
 				1250D2531E4BA76200D6D9F0 /* MainVC.swift in Sources */,
+				1250D26B1E4BB42C00D6D9F0 /* TableCell.swift in Sources */,
+				1250D26D1E4BB64B00D6D9F0 /* CellData.swift in Sources */,
 				1250D2511E4BA76200D6D9F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
