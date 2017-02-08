@@ -24,7 +24,24 @@ class TableCell: UITableViewCell {
     //it recycles them: meaning just changes the content
     func updateUI(cellData: CellData) {
         videoTitle.text = cellData.videoTitle
-        //TODO: set image from URL
+        
+        let url = URL(string: cellData.imageURL)!
+        
+        
+        //creates a new thread in the background that will try to download the image
+        //so it doesn't freeze the thread
+        DispatchQueue.global().async {
+            do {
+                let data = try Data(contentsOf: url)
+                
+                //when the image is done downloading it will put it into the cell
+                DispatchQueue.global().sync {
+                    self.videoPreviewImage.image = UIImage(data: data)
+                }
+            } catch {
+                //handle the error
+            }
+        }
     }
 
 }

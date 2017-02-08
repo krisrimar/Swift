@@ -19,11 +19,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let video1 = CellData(imageURL: "https://i.ytimg.com/vi/XEEasR7hVhA/hqdefault.jpg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XEEasR7hVhA\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "The Devil In I")
         
-        let video2 = CellData(imageURL: "https://i.ytimg.com/vi/XEEasR7hVhA/hqdefault.jpg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XEEasR7hVhA\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "The Devil In I")
+        let video2 = CellData(imageURL: "https://i.ytimg.com/vi/sgA7KIwKlOE/maxresdefault.jpg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/vXgdYj3LvF0\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "The Negative One")
         
-        let video3 = CellData(imageURL: "https://i.ytimg.com/vi/XEEasR7hVhA/hqdefault.jpg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XEEasR7hVhA\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "The Devil In I")
+        let video3 = CellData(imageURL: "https://upload.wikimedia.org/wikipedia/en/1/1b/Custer_cover.jpg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/qnZtGDFu3k0\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "Custer")
         
-        let video4 = CellData(imageURL: "https://i.ytimg.com/vi/XEEasR7hVhA/hqdefault.jpg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XEEasR7hVhA\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "The Devil In I")
+        let video4 = CellData(imageURL: "https://i.ytimg.com/vi/9LF7ScsZhoY/maxresdefault.jpg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/CwAf9WNyXE8\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "AOV")
         
         let video5 = CellData(imageURL: "https://i.ytimg.com/vi/XEEasR7hVhA/hqdefault.jpg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XEEasR7hVhA\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "The Devil In I")
         

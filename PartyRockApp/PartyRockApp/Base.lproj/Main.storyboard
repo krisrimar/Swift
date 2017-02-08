@@ -87,6 +87,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MtQ-3C-giR">
                                 <rect key="frame" x="0.0" y="192" width="320" height="376"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="88" id="qQm-DT-3QW" customClass="TableCell" customModule="PartyRockApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="88"/>
@@ -105,7 +106,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Devil In I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppa-e7-52E">
                                                     <rect key="frame" x="84" y="26" width="228" height="36"/>
                                                     <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="26"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -117,6 +118,7 @@
                                                 <constraint firstItem="ppa-e7-52E" firstAttribute="trailing" secondItem="Q6i-Vf-2bW" secondAttribute="trailingMargin" id="yi6-XZ-xU2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="videoPreviewImage" destination="TRM-SK-xVD" id="ZJD-HW-2h8"/>
                                             <outlet property="videoTitle" destination="ppa-e7-52E" id="Sio-oL-7xq"/>
