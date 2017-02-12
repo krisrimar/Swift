@@ -58,6 +58,29 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellData.count
     }
+    
+    //when the user taps on the row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let tableCell = cellData[indexPath.row]
+        
+        performSegue(withIdentifier: "VideoVC", sender: tableCell)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //grab the destination viewcontroller
+        if let destination = segue.destination as? VideoVC {
+            
+            //grab the cell object passed from didSelectRowAt indexPath
+            if let data = sender as? CellData {
+                
+                //set the variable in the destination to the one that we passed
+                destination.cellData = data
+            }
+            
+        }
+    }
 
 }
 

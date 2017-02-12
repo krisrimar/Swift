@@ -104,7 +104,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Devil In I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppa-e7-52E">
-                                                    <rect key="frame" x="84" y="26" width="228" height="36"/>
+                                                    <rect key="frame" x="84" y="26.5" width="228" height="35.5"/>
                                                     <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="26"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -163,20 +163,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3DE-5j-Skw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="200"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="CVV-5n-IYl"/>
                                 </constraints>
                             </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn1-kM-wDK">
+                                <rect key="frame" x="32" y="254" width="256" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="3DE-5j-Skw" firstAttribute="top" secondItem="NVW-Nh-Sxq" secondAttribute="top" id="AAo-H9-Stb"/>
-                            <constraint firstItem="3DE-5j-Skw" firstAttribute="leading" secondItem="NVW-Nh-Sxq" secondAttribute="leading" id="HdU-nA-fB5"/>
-                            <constraint firstAttribute="trailing" secondItem="3DE-5j-Skw" secondAttribute="trailing" id="zPq-yz-bbx"/>
+                            <constraint firstItem="Yn1-kM-wDK" firstAttribute="top" secondItem="3DE-5j-Skw" secondAttribute="bottom" constant="32" id="DKc-Sx-w3u"/>
+                            <constraint firstItem="3DE-5j-Skw" firstAttribute="top" secondItem="NVW-Nh-Sxq" secondAttribute="top" constant="22" id="LCr-Em-lTn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yn1-kM-wDK" secondAttribute="trailing" constant="16" id="W78-hJ-OtA"/>
+                            <constraint firstAttribute="trailing" secondItem="3DE-5j-Skw" secondAttribute="trailing" id="fwa-Ep-Peq"/>
+                            <constraint firstItem="Yn1-kM-wDK" firstAttribute="leading" secondItem="NVW-Nh-Sxq" secondAttribute="leadingMargin" constant="16" id="pHq-1I-btB"/>
+                            <constraint firstItem="3DE-5j-Skw" firstAttribute="leading" secondItem="NVW-Nh-Sxq" secondAttribute="leading" id="q6o-Nf-TFk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="videoLbl" destination="Yn1-kM-wDK" id="7WG-YI-tgU"/>
+                        <outlet property="webView" destination="3DE-5j-Skw" id="daB-g1-aAi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo1-4c-EKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

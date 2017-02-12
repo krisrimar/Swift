@@ -22,6 +22,7 @@ class TableCell: UITableViewCell {
     //pass data into this function each time a new cell is created
     //we need this function because each time new cells appear on the screen iOS does not add them
     //it recycles them: meaning just changes the content
+    
     func updateUI(cellData: CellData) {
         videoTitle.text = cellData.videoTitle
         
