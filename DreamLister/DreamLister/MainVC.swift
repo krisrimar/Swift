@@ -22,23 +22,58 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
+        //generateTestData()
+        attemptFetch()
+        
     }
     
+    //when we are creating a cell...
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        
+        //we are passing it into configureCell
+        configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
+        
+        return cell
+    }
+    
+    //custom function for updating the cells
+    func configureCell(cell: ItemCell, indexPath: NSIndexPath) {
+        let item = controller.object(at: (indexPath as NSIndexPath) as IndexPath)
+        cell.configureCell(item: item)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //if there are sections in the controller
+        if let sections = controller.sections {
+            
+            //get the info out of it
+            let sectionInfo = sections[section]
+            
+            //and return the number of objects
+            return sectionInfo.numberOfObjects
+        }
+        
         return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections = controller.sections {
+            return sections.count
+        }
         return 0
+    }
+    
+    //controlls the height of the tableView cells
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 136
     }
     
     //CORE DATA:
     
-    func attemptCatch() {
+    func attemptFetch() {
         
         //tell the variable what to go fetch
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
@@ -53,6 +88,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         //NSManagedObjectContext is now passed the "context" constant which has been added to the AppDelegate
         //sectionNameKayPath: passing in nil because we need all of the results
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        self.controller = controller
         
         //attempt a fetch with a controller
         do {
@@ -97,6 +134,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         case.update:
             if let indexPath = indexPath {
                 let cell = tableView.cellForRow(at: indexPath) as! ItemCell
+                configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
             }
             break
             
@@ -112,5 +150,29 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             
         }
     }
+    
+    //add items to CoreData (internal memory)
+    //but if you don't run this function, the items will not show up
+    //you need to save them to the memory first
+    func generateTestData() {
+        let item1 = Item(context: context)
+        item1.title = "MacBook Pro"
+        item1.price = 1800.0
+        item1.details = "Fuck this is bullshit"
+        
+        let item2 = Item(context: context)
+        item2.title = "Bose Headphones"
+        item2.price = 300.0
+        item2.details = "Fuck this is bullshit"
+        
+        let item3 = Item(context: context)
+        item3.title = "Tesla Model S"
+        item3.price = 111000.0
+        item3.details = "I want to own this car"
+        
+        //add this to save to DB
+        ad.saveContext()
+    }
+    
 }
 
