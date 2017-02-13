@@ -16,6 +16,7 @@
 		12EC7AF11E50B92400A4F858 /* ItemCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC7AF01E50B92400A4F858 /* ItemCD.swift */; };
 		12EC7AF31E50C16100A4F858 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC7AF21E50C16100A4F858 /* MaterialView.swift */; };
 		12EC7AF51E50CAB400A4F858 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC7AF41E50CAB400A4F858 /* ItemCell.swift */; };
+		12EEA37B1E51BFF100FCFD2F /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEA37A1E51BFF100FCFD2F /* ItemDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		12EC7AF01E50B92400A4F858 /* ItemCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCD.swift; sourceTree = "<group>"; };
 		12EC7AF21E50C16100A4F858 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		12EC7AF41E50CAB400A4F858 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		12EEA37A1E51BFF100FCFD2F /* ItemDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +90,6 @@
 			children = (
 				12EC7AF21E50C16100A4F858 /* MaterialView.swift */,
 				12EC7AF41E50CAB400A4F858 /* ItemCell.swift */,
-				12EC7AC91E50B13B00A4F858 /* MainVC.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -96,6 +97,8 @@
 		12EC7AEE1E50B64A00A4F858 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				12EC7AC91E50B13B00A4F858 /* MainVC.swift */,
+				12EEA37A1E51BFF100FCFD2F /* ItemDetailsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12EC7AF11E50B92400A4F858 /* ItemCD.swift in Sources */,
+				12EEA37B1E51BFF100FCFD2F /* ItemDetailsVC.swift in Sources */,
 				12EC7ACA1E50B13B00A4F858 /* MainVC.swift in Sources */,
 				12EC7AF51E50CAB400A4F858 /* ItemCell.swift in Sources */,
 				12EC7AF31E50C16100A4F858 /* MaterialView.swift in Sources */,
@@ -344,6 +348,7 @@
 				12EC7ADB1E50B13B00A4F858 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
