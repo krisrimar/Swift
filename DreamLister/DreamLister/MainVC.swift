@@ -43,6 +43,31 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         let item = controller.object(at: (indexPath as NSIndexPath) as IndexPath)
         cell.configureCell(item: item)
     }
+    
+    //when a selection of a table cell happens
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let objs = controller.fetchedObjects , objs.count > 0 {
+            let item = objs[indexPath.row]
+            performSegue(withIdentifier: "ItemDetailsVC", sender: item)
+        }
+    }
+    
+    //get ready to pass any information form the original view to the new view 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ItemDetailsVC" {
+            
+            //create a variable for destination, set it to ItemDetails view controller
+            if let destination = segue.destination as? ItemDetailsVC {
+                
+                //create an item and cast it as Item
+                if let item = sender as? Item {
+                    
+                    //at the destination, assign itemToEdit a new value
+                    destination.itemToEdit = item
+                }
+            }
+        }
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
