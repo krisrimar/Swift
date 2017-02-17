@@ -89,6 +89,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         //sectionNameKayPath: passing in nil because we need all of the results
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
+        controller.delegate = self
+        
         self.controller = controller
         
         //attempt a fetch with a controller

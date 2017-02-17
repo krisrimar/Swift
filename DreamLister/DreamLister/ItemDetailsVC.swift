@@ -16,6 +16,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var detailsField: UITextField!
     
+    
     var stores = [Store]()
 
     override func viewDidLoad() {
@@ -77,5 +78,32 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             //handle the error
         }
     }
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        
+        //add item to context
+        let item = Item(context: context)
+        
+        if let title = titleField.text {
+            item.title = title
+        }
+        
+        if let price = priceField.text {
+            item.price = (price as NSString).doubleValue
+        }
+        
+        if let details = detailsField.text {
+            item.details = details
+        }
+        
+        item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
+        
+        //save item to context
+        ad.saveContext()
+        
+        _ = navigationController?.popViewController(animated: true)
+        
+    }
+    
 
 }
