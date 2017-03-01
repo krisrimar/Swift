@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var storePicker: UIPickerView!
     @IBOutlet weak var titleField: UITextField!
@@ -32,6 +32,9 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
         storePicker.delegate = self
         storePicker.dataSource = self
+        detailsField.delegate = self
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ItemDetailsVC.dismissKeyboard)))
         
 //        let store = Store(context: context)
 //        store.name = "Best Buy"
@@ -55,6 +58,11 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             loadItemData()
         }
         
+    }
+    
+    func textFieldShouldReturn(_ detailsField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -143,6 +151,10 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             }
         }
         
+    }
+    
+    func dismissKeyboard() {
+        detailsField.resignFirstResponder()
     }
     
 
