@@ -106,9 +106,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         //how to sort the fetched data
         //the key is "created" which matches that in the data model for Item
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
+        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
         
-        //sortDescriptors requests an array, but now we only have one object, therefore we still use []
-        fetchRequest.sortDescriptors = [dateSort]
+        if segment.selectedSegmentIndex == 0 {
+            fetchRequest.sortDescriptors = [dateSort]
+        } else if segment.selectedSegmentIndex == 1 {
+            fetchRequest.sortDescriptors = [priceSort]
+        } else if segment.selectedSegmentIndex == 2 {
+            fetchRequest.sortDescriptors = [titleSort]
+        }
         
         //NSManagedObjectContext is now passed the "context" constant which has been added to the AppDelegate
         //sectionNameKayPath: passing in nil because we need all of the results
@@ -127,6 +134,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
         
     }
+    
+    //run this function when user taps on segment controll
+    @IBAction func segmentChange(_ sender: Any) {
+        attemptFetch()
+        tableView.reloadData()
+    }
+    
     
     //whenever the table view is about to update this function will listen for changes and will handle it for you
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
