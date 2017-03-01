@@ -9,18 +9,20 @@
 import UIKit
 import CoreData
 
-class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var storePicker: UIPickerView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var detailsField: UITextField!
-    
+    @IBOutlet weak var thumbImg: UIImageView!
     
     var stores = [Store]()
     
     //variable for storing data passed from the Main screen by a table cell
     var itemToEdit: Item?
+    
+    var imagePicker: UIImagePickerController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,11 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         storePicker.dataSource = self
         detailsField.delegate = self
         
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        
+        //to hide keyboard when user taps anywhere in screen
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ItemDetailsVC.dismissKeyboard)))
         
 //        let store = Store(context: context)
@@ -60,6 +67,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
     }
     
+    //code for hiding keyboard when [Done] button is pressed
     func textFieldShouldReturn(_ detailsField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
@@ -98,12 +106,16 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     @IBAction func savePressed(_ sender: UIButton) {
         
         var item: Item!
+        let picture = Image(context: context)
+        picture.image = thumbImg.image
         
         if itemToEdit == nil {
             item = Item(context: context)
         } else {
             item = itemToEdit
         }
+        
+        item.toImage = picture
         
         if let title = titleField.text {
             item.title = title
@@ -133,6 +145,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             titleField.text = item.title
             priceField.text = "\(item.price)"
             detailsField.text = item.details
+            thumbImg.image = item.toImage?.image as? UIImage
             
             if let store = item.toStore {
                 var index = 0
@@ -155,6 +168,37 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     
     func dismissKeyboard() {
         detailsField.resignFirstResponder()
+    }
+    
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)
+            ad.saveContext()
+        }
+        
+        _ = navigationController?.popViewController(animated: true)
+        
+    }
+    
+    @IBAction func addImage(_ sender: UIButton) {
+        
+        present(imagePicker, animated: true) { 
+            
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            thumbImg.image = img
+            
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+        
     }
     
 
